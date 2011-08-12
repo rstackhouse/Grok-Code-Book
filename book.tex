@@ -1,0 +1,46 @@
+\documentclass{book}
+\usepackage{hyperref}
+% glossaries needs to come after hyperref if glossary entries are to be clickable
+\usepackage[toc,acronym]{glossaries}
+
+\include{glossaryentries}
+
+\makeglossaries
+
+\title{Grok Code Book}
+\author{@GrokCodeBook \\ \url{http://twitter.com/\#!/GrokCodeBook}}
+
+\begin{document}
+\maketitle
+\addcontentsline{toc}{chapter}{Contents}
+\pagenumbering{roman}
+\tableofcontents
+
+% The star suppresses numbering
+\chapter*{Introduction}\normalsize
+\addcontentsline{toc}{chapter}{Introduction}
+\pagestyle{plain}
+
+The solitary nature of much of computer programming and the number of different avenues that may lead to a career in programming make it 
+difficult for best practices to permiate the field. A responsible author can no longer assume that a person seeking to learn about programming 
+has any background in either computer science or mathematics. All jargon should be introduced in a glossary at minimum; regardless of how many 
+works the author has authored. If a programming text is to build on some assumed knowledge, it must explicitly define said knowledge from the 
+outset, and ought contain a "Read First" section. 
+
+Also, the volume of information forthcoming about new technologies—frameworks, toolkits, tooling, etc.—drowns out information about programming 
+well. By providing this text free of charge, holding ourselves to the highest standard of authorship and editorship, trying to make this text 
+accessible to all that might read it, and acting as stewards and care-takers of this living document, we hope to raise the bar for published 
+works pertaining to computer programming.
+
+The examples included hereafter are executed in C\# and Microsoft.Net but are relevant to all languages and frameworks.
+
+\pagestyle{headings}
+\pagenumbering{arabic}
+
+% Setting Up Your Programming Environment
+\include{setup}
+
+\printglossaries
+\addcontentsline{toc}{chapter}{Glossary}
+
+\end{document}

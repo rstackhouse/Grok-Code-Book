@@ -1,0 +1,36 @@
+%Terms
+
+\newglossaryentry{auto-completion}
+{
+name=auto-completion,
+description={``A feature [of software programs] that suggests text automatically based on the first few characters that a user types.''\footnote{http://msdn.microsoft.com/en-us/library/dd921717(v=office.12).aspx}}
+}
+
+\newglossaryentry{refactoring}
+{
+name=refactoring,
+description={``The process of modifying source code for the purpose of improving its readability and maintainability while retaining the program's functionality and behavior.'' \footnote{\url{http://developer.apple.com/library/ios/\#documentation/DeveloperTools/Conceptual/Xcode_Glossary/20-Glossary/Glossary.html}}}
+}
+
+%Acronyms
+
+%use lower case for glossary entry
+\newglossaryentry{ide}
+{
+name=\glslink{IDE}{Integrated Development Environment},
+text=Integrated Development Environment,
+description={``An integrated development environment (IDE) (also known as integrated design environment, integrated debugging environment or interactive development environment) is a software application that provides comprehensive facilities to computer programmers for software development''\footnote{\url{http://en.wikipedia.org/wiki/Integrated_development_environment}}}
+}
+
+%use all-caps for acronym and in body text
+\newacronym[description={\glslink{ide}{Integrated Development Environment}}]{IDE}{IDE}{Integrated Development Environment}
+
+% use \- to suggest hyphenation points
+\newglossaryentry{floss}
+{
+name=\glslink{FLOSS}{Free/Libre/Open Source Software},
+text=Free\/\-Libre\/\-Open Source Software,
+description={``Free/\-Libre/\-Open-\-source software (FLOSS) is liberally licensed to grant the right of users to use, study, change, and improve its design through the availability of its source code'' \footnote{\url{http://en.wikipedia.org/wiki/Free_and_open_source_software}}}
+}
+
+\newacronym[description={\glslink{floss}{Free/\-Libre/\-Open Source Software}}]{FLOSS}{FLOSS}{Free/Libre/Open Source Software}
