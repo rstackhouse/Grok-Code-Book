@@ -15,6 +15,7 @@ description={``The process of modifying source code for the purpose of improving
 %Acronyms
 
 %use lower case for glossary entry
+%IDE
 \newglossaryentry{ide}
 {
 name=\glslink{IDE}{Integrated Development Environment},
@@ -25,6 +26,7 @@ description={``An integrated development environment (IDE) (also known as integr
 %use all-caps for acronym and in body text
 \newacronym[description={\glslink{ide}{Integrated Development Environment}}]{IDE}{IDE}{Integrated Development Environment}
 
+%FLOSS
 % use \- to suggest hyphenation points
 \newglossaryentry{floss}
 {
@@ -34,3 +36,53 @@ description={``Free/\-Libre/\-Open-\-source software (FLOSS) is liberally licens
 }
 
 \newacronym[description={\glslink{floss}{Free/\-Libre/\-Open Source Software}}]{FLOSS}{FLOSS}{Free/Libre/Open Source Software}
+
+%NAnt
+\newglossaryentry{nant}
+{
+name=\glslink{NAnt}{NAnt},
+text=NAnt,
+description={A \gls{FLOSS} build automation tool written in C\#\footnote{\url{http://nant.sourceforge.net/}}}
+}
+
+\newacronym[description={\glslink{nant}{Short for ``Not Ant''\footnote{\url{http://nant.sourceforge.net/release/latest/help/introduction/fog0000000042.html}}}}]{NAnt}{NAnt}{Not Ant}
+
+%TDD
+\newglossaryentry{tdd}
+{
+name=\glslink{TDD}{Test Driven Development},
+text=Test Driven Development,
+description={A software development methodology whereby the developer writes a failing test, writes code to make the test pass, and refactors the test as needed to prevent duplication of code and brittleness. The tests are automated with the use of an automated test harness.}
+}
+
+\newacronym[description={\glslink{tdd}{Test Driven Development}]{TDD}{TDD}{Test Driven Development}
+
+%VCS
+\newglossaryentry{vcs}
+{
+name=\glslink{VCS}{Version Control System},
+text=Version Control System,
+description={A software tool for managing changes made to source code. Make \gls{branching} and \gls{merging} possible.}
+}
+
+\newacronym[description={\glslink{vcs}{Version Control System}]{VCS}{VCS}{Version Control System}
+
+%DVCS
+\newglossaryentry{dvcs}
+{
+name=\glslink{DVCS}{Distributed Version Control System},
+text=Distributed Version Control System,
+description={A distributed form of \gls{vcs}. Whole repositories exist on the developer's machine rather than on a centralized server. Changes are sent between developers rather than client to server.}
+}
+
+\newacronym[description={\glslink{dvcs}{Distributed Version Control System}]{DVCS}{DVCS}{Distributed Version Control System}
+
+%CI
+\newglossaryentry{vcs}
+{
+name=\glslink{CI}{Continuous Integration},
+text=Continuous Integration,
+description={An automated process whereby source code is built and tested continuously, and reports on the outcome of the build/test process are sent to the developers.}
+}
+
+\newacronym[description={\glslink{vcs}{Continuous Integration}]{CI}{CI}{Continuous Integration}

@@ -1,0 +1,29 @@
+System requirements for contributors:
+	All platforms:
+		A text editor. GUI, command-line, or both (recommended).
+		A LaTeX distribution.
+		The glossaries package.
+	Windows:
+		MikTeX is the recommended LaTeX distribution.
+		Perl (ActivePerl is recommended) is required by the makeglossaries command
+		
+Recommeded text editors:
+	All platforms:
+		Vim (command-line)
+	Linux:
+		GEdit
+	Windows:
+		Notepad++
+	
+Commiting:	
+	Make atomic commits. Commit one feature or section (of text) at a time. Do not commit entire sub-namespaces or chapters at once. Doing this makes 
+	it easier to leave out features or sections of text wholesale. Always enable cherry-picking for other people. You write it, let others decide if 
+	it is fruitful.
+
+Generating the PDF:
+	Run the following commands in the sequence they are written:
+		pdflatex book
+		makeglossaries book
+		pdflatex book	
+		makeglossaries book
+		pdflatex book

@@ -12,17 +12,93 @@ environment.
 to transfer knowledge to its end user. Want to know the best way to write a task for your build engine? Why not see how the authors of your build
 engine did it? In order to write code, you must learn how to read code. By extension, to write code well, you must learn how to read code well. It is 
 important to figure out why a piece of code was written the way it was and not just settle for duplicating and succesfully compiling it. Reading the 
-code behind open source software is a cheap and easy way to learn from the masters. NAnt contains some of the most well written C\# code out there.
+code behind open source software is a cheap and easy way to learn from the masters. \gls{NAnt} contains some of the most well written C\# code out there.
 
 \gls{FLOSS} software can be a little more difficult to set up, but doing so is worth the extra effort. There are many freely available tutorials
 online that will walk you through how to configure a software package for first-time use. In the process of setting up software, you will learn a
 little bit more about your computer runs programs in addition to making your computer a little bit more your own.
 
 The biggest reason for configuring your own environment is personal taste. You may prefer typing text on the command line in a program like 
-Vim\footnote{http://www.vim.org/} over using an \gls{IDE}.
+Vim\footnote{\url{http://www.vim.org/}} over using an \gls{IDE}.
 
-When it comes to programmer tools, one size definitely does not fit all. Something like ReSharper\footnote{http://www.jetbrains.com/resharper/} 
-may give you unparalelled \gls{refactoring} and \gls{auto-completion} support, but starting Visual Studio to change a configuration setting is 
-overkill.
+When it comes to programmer tools, one size definitely does not fit all. Something like ReSharper\footnote{\url{http://www.jetbrains.com/resharper/}} 
+may give you unparalelled \gls{refactoring} and \gls{auto-completion} support, but starting Visual Studio to change a configuration setting or one 
+line of code is overkill. One theme you should expect to encouter repeatedly in the passages that follow is, 
+``Use the right tool for the job at hand.''
 
-\section{List of Tools}
+\begin{quotation}
+If all you have is a hammer, everything looks like a nail.
+
+---Bernard Baruch
+\end{quotation}
+
+Equip yourself appropriately.
+
+\section{Tooling}
+
+\subsection{Build Automation}
+
+You should always provide other developers on your team the ability to quickly build your code and test it (with automated tests as well as 
+manually). Testing should always be a part of the review process as exercising the code can and does reveal errors that a visual inspection may 
+miss. Build automation is the mechanism by which you provide other developers this ability.
+
+Tasks within your build automation system can be used to check style, run automated tests, and write reports as well as compiling your code.
+
+Build automation is a critical to the practice of \gls{TDD}. If tests cannot be easily automated, they will not be run. Not out of developer laziness,
+but for the reason of sheer number. As your codebase grows, your tests can easily number in the hundreds. If you don't have a test harness for
+automating those tests, they simply won't be run often enough.
+
+\gls{NAnt} will be used in the examples that follow. MSBuild has some advantages in Windows-only shops---i.e. it is
+installed by default on Windows Server machines. At the time of writing, it more of a hassle to run all the unit tests for a project from the command
+-line in MSBuild than in NAnt. Also, there seems to be more of an air of acceptance towards customization---specifically writing one's own build 
+tasks---in the NAnt community. 
+
+While there is virtue in the philosophy, ``Why write what you can download for free?'' sometimes the needs of 
+customization outweigh the benefits of using easily downloadable/purchased software. The philosophy set forth herein is, ``Weigh all options without bias, and make the
+logical choice.'' Developers are---or at least always should be---part of a team. Sometimes, for the sake of progress, a developer needs to make
+decisions that compromise on their own happiness. For instance, not using your favorite build tool on a fresh project in a new job, because all the
+other developers are invested in the use of another tool.
+
+\subsection{Test Driven Development}
+
+\gls{TDD} should be thought of as a developer's safety net. Trapeze artists use a safety net to keep them from falling to their deaths. The presence
+of that net allows them to attempt things they might not otherwise. It allows them to overcome their fear to achieve greatness. \gls{TDD} is first 
+and foremost about giving developers the confidence to improve their code.
+
+\gls{NUnit} will be used in later examples as more support exists to automate it from the client machine.
+
+\subsection{Version Control}
+Things don't always go as planned. Sometimes defects will evade detection in testing. Having a way to quickly revert to a known working state is a 
+luxury no developer can afford to go without. Version control can be a lot like insurance to the uninitiated: you don't know you need it until it is 
+too late.
+
+\glspl{VCS} also provide a facility called branching. \Gls{branching} permits experimentation within libraries. \Gls{merging} allows succesful 
+experiments be kept. Otherwise, the branch can simply be abandoned. 
+
+%TODO: find someone who knows something about this to write this bit. Dropbox?
+\subsection{Backup}
+To prevent lost work, source code and application configuration should be backed up regularly. \glspl{DVCS} have the advantage that each developer 
+has a copy of the entire repository. Thus, as changes are passed back and forth between developers, backup occurs organically.
+
+\subsection{Continuous Integration}
+Based on the philosophy of making the hard things to do easier by doing them more often, ideally, continuous integration provides a means for 
+keeping software in a ready-to-deploy state.
+
+\gls{CI} systems wait for a trigger, and then perform a series of tasks once that trigger has been detected such as running unit tests,
+emailing reports, updating documentation, and even performing version control tasks.
+
+Common triggers are changes to the source code repository, elapsed time, and forced builds.
+
+The \gls{CI} server has oft been called the heartbeat of the software project.
+
+In the following pages, \gls{Buildbot} will be used as the CI server.
+
+\section{A First Build}
+
+Download \gls{NAnt} from \url{http://sourceforge.net/projects/nant/files/nant/}. As of the time of this writing, it is recommended that you get
+either the stable release of 0.90 or the nightly build. Unzip to C:$\backslash$Program Files\nant-\<version\> or another centrally available 
+location.
+
+Modify your \em{\%PATH\%} environment variable to point to \<NAnt-Installation-Directory\>$\backslash$bin \(i.e. C:\Program Files\nant-0.90\bin\).
+Do this by launching the System Properties window. This can be done by pressing the Windows and Pause keys simultaneously. This key comibination is
+denoted by ``Windows + Pause'' \(you will see this shorthand for key combinations again\).
