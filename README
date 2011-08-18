@@ -21,6 +21,10 @@ Commiting:
 	it is fruitful.
 
 Generating the PDF:
+    If you have NAnt installed issue the command "nant pdf", 
+    
+        OR
+    
 	Run the following commands in the sequence they are written:
 		pdflatex book
 		makeglossaries book

@@ -1,27 +1,55 @@
 %Terms
 
-\newglossaryentry{auto-completion}
-{
-name=auto-completion,
-description={``A feature [of software programs] that suggests text automatically based on the first few characters that a user types.''\footnote{http://msdn.microsoft.com/en-us/library/dd921717(v=office.12).aspx}}
-}
-
 \newglossaryentry{refactoring}
 {
 name=refactoring,
 description={``The process of modifying source code for the purpose of improving its readability and maintainability while retaining the program's functionality and behavior.'' \footnote{\url{http://developer.apple.com/library/ios/\#documentation/DeveloperTools/Conceptual/Xcode_Glossary/20-Glossary/Glossary.html}}}
 }
 
+\newglossaryentry{auto-completion}
+{
+name=auto-completion,
+description={``A feature {[}of software programs{]} that suggests text automatically based on the first few characters that a user types.''\footnote{http://msdn.microsoft.com/en-us/library/dd921717(v=office.12).aspx}}
+}
+
+\newglossaryentry{NUnit}
+{
+name=NUnit,
+description={A \gls{FLOSS} unit testing tool written in C\#.\footnote{\url{http://www.nunit.org/}}}
+}
+
+\newglossaryentry{branching}
+{
+name=branching,
+description={Creating a copy \(a branch\) of files under version control for the purpose allowing the files of the new branch and the files they were branched from to be modified independently of each other.
+}
+}
+
+\newglossaryentry{merging}
+{
+name=merging,
+description={Using a \gls{VCS} to intelligently combine the files of branch being merged in with the files of the target of the merge.
+}
+}
+
+\newglossaryentry{Buildbot}
+{
+name=Buildbot,
+description={A \gls{FLOSS} distributed build and \gls{CI} tool written in Python.\footnote{\url{http://trac.buildbot.net/}}}
+}
+
+
 %Acronyms
 
 %use lower case for glossary entry
+
 %IDE
 \newglossaryentry{ide}
 {
 name=\glslink{IDE}{Integrated Development Environment},
 text=Integrated Development Environment,
 description={``An integrated development environment (IDE) (also known as integrated design environment, integrated debugging environment or interactive development environment) is a software application that provides comprehensive facilities to computer programmers for software development''\footnote{\url{http://en.wikipedia.org/wiki/Integrated_development_environment}}}
-}
+}	
 
 %use all-caps for acronym and in body text
 \newacronym[description={\glslink{ide}{Integrated Development Environment}}]{IDE}{IDE}{Integrated Development Environment}
@@ -54,8 +82,8 @@ name=\glslink{TDD}{Test Driven Development},
 text=Test Driven Development,
 description={A software development methodology whereby the developer writes a failing test, writes code to make the test pass, and refactors the test as needed to prevent duplication of code and brittleness. The tests are automated with the use of an automated test harness.}
 }
-
-\newacronym[description={\glslink{tdd}{Test Driven Development}]{TDD}{TDD}{Test Driven Development}
+	
+\newacronym[description={\glslink{tdd}{Test Driven Development}}]{TDD}{TDD}{Test Driven Development}
 
 %VCS
 \newglossaryentry{vcs}
@@ -65,7 +93,7 @@ text=Version Control System,
 description={A software tool for managing changes made to source code. Make \gls{branching} and \gls{merging} possible.}
 }
 
-\newacronym[description={\glslink{vcs}{Version Control System}]{VCS}{VCS}{Version Control System}
+\newacronym[description={\glslink{vcs}{Version Control System}}]{VCS}{VCS}{Version Control System}
 
 %DVCS
 \newglossaryentry{dvcs}
@@ -75,14 +103,14 @@ text=Distributed Version Control System,
 description={A distributed form of \gls{vcs}. Whole repositories exist on the developer's machine rather than on a centralized server. Changes are sent between developers rather than client to server.}
 }
 
-\newacronym[description={\glslink{dvcs}{Distributed Version Control System}]{DVCS}{DVCS}{Distributed Version Control System}
+\newacronym[description={\glslink{dvcs}{Distributed Version Control System}}]{DVCS}{DVCS}{Distributed Version Control System}
 
 %CI
-\newglossaryentry{vcs}
+\newglossaryentry{ci}
 {
 name=\glslink{CI}{Continuous Integration},
 text=Continuous Integration,
 description={An automated process whereby source code is built and tested continuously, and reports on the outcome of the build/test process are sent to the developers.}
 }
 
-\newacronym[description={\glslink{vcs}{Continuous Integration}]{CI}{CI}{Continuous Integration}
+\newacronym[description={\glslink{ci}{Continuous Integration}}]{CI}{CI}{Continuous Integration}

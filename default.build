@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<project name="Grok Code Book" default="pdf" basedir=".">
+    <description>The build file for the Grok Code Book.</description>
+    <target name="clean" description="remove all generated files">
+        <delete failonerror="false">
+            <fileset>
+                <exclude name="*.tex" />
+                <exclude name="*.build" />
+                <exclude name="README" />
+                <include name="*.a*" />
+                <include name="*.b*" />
+                <include name="*.g*" />
+                <include name="*.ist" />
+                <include name="*.log" />
+                <include name="*.out" />
+                <include name="*.toc" />
+            </fileset>
+        </delete>
+    </target>
+    <target name="pdflatex">
+        <exec program="pdflatex">
+            <arg value="book" />
+        </exec>
+    </target>
+    <target name="makeglossaries">
+        <exec program="makeglossaries">
+            <arg value="book" />
+        </exec>
+    </target>
+    <target name="pdf" description="Generates the pdf from book.tex file" depends="clean">
+        <call target="pdflatex" />
+        <call target="makeglossaries" />
+        <call target="pdflatex" />
+        <call target="makeglossaries" />
+        <call target="pdflatex" />
+    </target>
+</project>
