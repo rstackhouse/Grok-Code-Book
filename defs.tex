@@ -1,0 +1,16 @@
+%defs.tex
+
+\ifx \ifmonospace \undefined
+	%http://www.opensource.apple.com/source/autoconf/autoconf-12/autoconf/config/texinfo.tex
+	\def\ifmonospace{\ifdim\fontdimen3\font=0pt }
+\fi
+
+%http://stackoverflow.com/questions/2724760/how-to-write-c-in-latex/2728020#2728020
+%C#
+\def \CSharp {
+\ifmonospace
+    C\#
+\else%
+    C\# %TODO: make this match example in url above
+\fi
+\spacefactor1000 }

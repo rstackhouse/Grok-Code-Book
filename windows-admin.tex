@@ -1,6 +1,12 @@
 %windows-admin.tex
 
-\chapter{Windows Administrative Tasks}
-\section{Setting the PATH Environment Variable}
-Do this by launching the System Properties window. This can be done by pressing the Windows and Pause keys simultaneously. This key comibination is
-denoted by ``Windows + Pause'' \(you will see this shorthand for key combinations again\).
+\chapter{Windows Administrative Tasks} 
+\section{Setting the PATH Environment Variable}\label{path}
+The \em PATH \em environment variable represents a semi-colon delimited (separated) list of all the paths in your computer where executable files are kept. This allows you to execute an executable from the command line by typing only it's name and not its full path (i.e. \em C:$\backslash$$\rangle$firefox \em as opposed to \em C:$\backslash$$\rangle$"Program Files$\backslash$Mozilla Firefox$\backslash$firefox.exe" \em).
+
+You may set the \em PATH \em environment variable by launching the System Properties window. This can be done by pressing the \em Windows \em and \em Pause \em keys simultaneously. This key comibination is
+denoted by \em Windows  Pause \em (you will see this \em button + button \em shorthand for key combinations again). A dialog named \em System Properties \em will show up on-screen. Click the \em Advanced \em tab. Then click the \em Environment Variables \em button. If you have administrative access, select the variable named \em PATH \em (spelling may also be \em Path \em) in the list called \em System variables \em, and push the \em Edit \em button.
+
+You will be presented with the \em Edit System Variable \em dialog. In the \em Variable value \em box, paste the path to the program (full path to the directory it is in) at the end of the list of paths. Ensure there is a semi-colon separating new path from the one before it. Click the \em OK \em button to close the \em Edit System Variable \em dialog. Click \em OK \em to close the \em Environment Variables \em dialog, and close the \em System Properties \em window.
+
+\em N.B.: any command windows you had open while modifing your PATH variable will not reflect the changes to it. Be sure to close and reopen all command windows when editing your PATH. \em

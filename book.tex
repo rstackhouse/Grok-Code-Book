@@ -1,5 +1,9 @@
 \documentclass{book}
 \usepackage{hyperref}
+
+\hypersetup{colorlinks=true,
+	linkcolor=red}
+
 % glossaries needs to come after hyperref if glossary entries are to be clickable
 \usepackage[toc,acronym]{glossaries}
 
@@ -9,6 +13,8 @@
 
 \title{Grok Code Book}
 \author{@GrokCodeBook \\ \url{http://twitter.com/\#!/GrokCodeBook}}
+
+\include{defs}
 
 \begin{document}
 \maketitle
@@ -32,7 +38,7 @@ well. By providing this text free of charge, holding ourselves to the highest st
 accessible to all that might read it, and acting as stewards and care-takers of this living document, we hope to raise the bar for published 
 works pertaining to computer programming.
 
-The examples included hereafter are executed in C\# and Microsoft.Net, but the concepts set forth therein are relevant to all OO languages and frameworks.
+The examples included hereafter are executed in \CSharp and Microsoft.Net, but the concepts set forth therein are relevant to all OO languages and frameworks.
 
 \pagestyle{headings}
 \pagenumbering{arabic}
