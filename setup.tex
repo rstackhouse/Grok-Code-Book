@@ -95,8 +95,31 @@ In the following pages, \gls{Buildbot} will be used as the CI server.
 
 \section{A First Build}
 
+\subsection{Get NAnt}
 Download \gls{NAnt} from \url{http://sourceforge.net/projects/nant/files/nant/}. As of the time of this writing, it is recommended that you get
 either the stable release of 0.90 or the nightly build. Unzip to C:$\backslash$Program Files$\backslash$nant-$\langle$version$\rangle$ or another centrally available 
 location.
 
 Modify your \em \hyperref[path]{\%PATH\%} \em environment variable to point to $\langle$NAnt-Installation-Directory$\rangle$$\backslash$bin (i.e. C:$\backslash$Program Files$\backslash$nant-0.90$\backslash$bin).
+
+Test NAnt by \hyperref[launch-command-window]{launching a command window} and typing \em nant \em at the prompt.
+
+\subsection{Create Your First Build File}
+With your open command window, \hyperref[change-directories]{change directories} to your desktop.
+
+\hyperref[create-directory]{Create a directory} named ``GrokCodeBook'' using the ``mkdir'' command.
+
+Open a file for editing with your favorite \gls{text-editor} (a \hyperref[text-editors]{listing of text-editors} is provided in the \hyperref[tools]{Tools} appendix) and type the following:
+
+%http://kb.mit.edu/confluence/display/ist/How+to+use+Tabs+in+LaTeX
+\begin{tabbing}
+$\langle$?xml version="1.0"?$\rangle$ \\
+$\langle$pro\=ject name="Hello Grok Code Book" default="msg" basedir="."$\rangle$ \\
+\>$\langle$description$\rangle$An example build file$\langle$/description$\rangle$ \\
+\>$\langle$tar\=get name="msg"$\rangle$ \\
+\>\>$\langle$echo message="Hello!"/$\rangle$ \\
+\>$\langle$/target$\rangle$ \\
+$\langle$/project$\rangle$
+\end{tabbing}
+
+Save the file as $\langle$Desktop$\rangle$$\backslash$GrokCodeBook$\backslash$default.build.
