@@ -1,29 +1,27 @@
 %setup.tex
 
-\chapter{Setting Up Your Programming Environment}
+\chapter{Setting Up a Programming Environment}
 
 \section{DIY}
-One click installers for all-in-one \glspl{IDE} can be nice, but they tend to encourage dependency on automata. They also promote, ``Well, if there 
-isn't an installer for it, it can't be any good,'' thinking. It should be noted that often times creating an installer that works for Windows can be
-prohibitively expensive for authors of tools who do not use Windows as their primary operating system or Visual Studio as their primary development 
-environment.
+One click installers for all-in-one \glspl{IDE} can be nice, but those installers and \glspl{IDE} tend to encourage dependency on automata. They also promote, ``Well, if there 
+isn't an installer for it, it can't be any good,'' thinking. It should be noted that often times creating an installer that works for Windows can be prohibitively expensive for authors of tools who do not use Windows as their primary operating system or Visual Studio as their primary development environment.
 
 \gls{FLOSS} software will be used in the examples hereafter; not because if its price-point, but rather because of the ability of open source software
-to transfer knowledge to its end user. Want to know the best way to write a task for your build engine? Why not see how the authors of your build
-engine did it? In order to write code, you must learn how to read code. By extension, to write code well, you must learn how to read code well. It is 
+to transfer knowledge to its end user. Want to know the best way to write a task for a build engine? Why not see how the authors of the build
+engine did it? In order to write code, one must learn how to read code. By extension, to write code well, one must learn how to read code well. It is 
 important to figure out why a piece of code was written the way it was and not just settle for duplicating and succesfully compiling it. Reading the 
 code behind open source software is a cheap and easy way to learn from the masters. \gls{NAnt} contains some of the most well written \CSharp code out there.
 
 \gls{FLOSS} software can be a little more difficult to set up, but doing so is worth the extra effort. There are many freely available tutorials
-online that will walk you through how to configure a software package for first-time use. In the process of setting up software, you will learn a
-little bit more about your computer runs programs in addition to making your computer a little bit more your own.
+online that will walk the developer through how to configure a software package for first-time use. In the process of setting up software, developers learn a
+little bit more about how a computer runs programs in addition to making their computers a little bit more their own.
 
-The biggest reason for configuring your own environment is personal taste. You may prefer typing text on the command line in a program like 
-Vim\footnote{\url{http://www.vim.org/}} over using an \gls{IDE}.
+The biggest reason for configuring a development environment as one sees fit is personal taste. Some developers prefer typing text on the command line in a program like 
+Vim\footnote{\url{http://www.vim.org/}} over using an \gls{IDE} exclusively.
 
 When it comes to programmer tools, one size definitely does not fit all. Something like ReSharper\footnote{\url{http://www.jetbrains.com/resharper/}} 
-may give you unparalelled \gls{refactoring} and \gls{auto-completion} support, but starting Visual Studio to change a configuration setting or one 
-line of code is overkill. One theme you should expect to encouter repeatedly in the passages that follow is, 
+may afford developers unparalelled \gls{refactoring} and \gls{auto-completion} support, but starting Visual Studio to change a configuration setting or one 
+line of code is overkill. One theme that will recur throughout the passages that follow is, 
 ``Use the right tool for the job at hand.''
 
 \begin{quotation}
@@ -32,20 +30,19 @@ If all you have is a hammer, everything looks like a nail.
 ---Bernard Baruch
 \end{quotation}
 
-Equip yourself appropriately.
+Choose tools wisely.
 
 \section{Tooling}
 
 \subsection{Build Automation}
-
-You should always provide other developers on your team the ability to quickly build your code and test it (with automated tests as well as 
+Developers should always provide other developers on their team the ability to quickly build projects and test them (with automated tests as well as 
 manually). Testing should always be a part of the review process as exercising the code can and does reveal errors that a visual inspection may 
-miss. Build automation is the mechanism by which you provide other developers this ability.
+miss. Build automation is the mechanism that extends developers this ability.
 
-Tasks within your build automation system can be used to check style, run automated tests, and write reports as well as compiling your code.
+Tasks within a build automation system can be used to check style, run automated tests, and write reports as well as compiling source code.
 
 Build automation is a critical to the practice of \gls{TDD}. If tests cannot be easily automated, they will not be run. Not out of developer laziness,
-but for the reason of sheer number. As your codebase grows, your tests can easily number in the hundreds. If you don't have a test harness for
+but for the reason of sheer number. As a codebase grows, the number of tests for it can easily number in the hundreds. If there isn't test harness for
 automating those tests, they simply won't be run often enough.
 
 \gls{NAnt} will be used in the examples that follow. MSBuild has some advantages in Windows-only shops---i.e. it is
@@ -56,7 +53,7 @@ tasks---in the NAnt community.
 While there is virtue in the philosophy, ``Why write what you can download for free?'' sometimes the needs of 
 customization outweigh the benefits of using easily downloadable/purchased software. The philosophy set forth herein is, ``Weigh all options without bias, and make the
 logical choice.'' Developers are---or at least always should be---part of a team. Sometimes, for the sake of progress, a developer needs to make
-decisions that compromise on their own happiness. For instance, not using your favorite build tool on a fresh project in a new job, because all the
+decisions that compromise on their own happiness. For instance, not using one's favorite build tool on a fresh project in a new job, because all the
 other developers are invested in the use of another tool.
 
 \subsection{Test Driven Development}
@@ -69,8 +66,7 @@ and foremost about giving developers the confidence to improve their code.
 
 \subsection{Version Control}
 Things don't always go as planned. Sometimes defects will evade detection in testing. Having a way to quickly revert to a known working state is a 
-luxury no developer can afford to go without. Version control can be a lot like insurance to the uninitiated: you don't know you need it until it is 
-too late.
+luxury no developer can afford to go without. Version control can be a lot like insurance to the uninitiated: it's value isn't apparent until it's benefits have been experienced or woefully missed.
 
 \glspl{VCS} also provide a facility called branching. \Gls{branching} permits experimentation within libraries. \Gls{merging} allows succesful 
 experiments be kept. Otherwise, the branch can simply be abandoned. 
@@ -96,20 +92,20 @@ In the following pages, \gls{Buildbot} will be used as the CI server.
 \section{A First Build}
 
 \subsection{Get NAnt}
-Download \gls{NAnt} from \url{http://sourceforge.net/projects/nant/files/nant/}. As of the time of this writing, it is recommended that you get
+Download \gls{NAnt} from \url{http://sourceforge.net/projects/nant/files/nant/}. As of the time of this writing, it is recommended that one get
 either the stable release of 0.90 or the nightly build. Unzip to C:$\backslash$Program Files$\backslash$nant-$\langle$version$\rangle$ or another centrally available 
 location.
 
-Modify your \em \hyperref[path]{\%PATH\%} \em environment variable to point to $\langle$NAnt-Installation-Directory$\rangle$$\backslash$bin (i.e. C:$\backslash$Program Files$\backslash$nant-0.90$\backslash$bin).
+Modify the \em \hyperref[path]{\%PATH\%} \em environment variable to point to $\langle$NAnt-Installation-Directory$\rangle$$\backslash$bin (i.e. C:$\backslash$Program Files$\backslash$nant-0.90$\backslash$bin).
 
-Test NAnt by \hyperref[launch-command-window]{launching a command window} and typing \em nant \em at the prompt.
+Test NAnt by \hyperref[launch-command-window]{launching a command window} and typing \em nant -help \em at the prompt. This should display NAnt's help text to the command window.
 
-\subsection{Create Your First Build File}
-With your open command window, \hyperref[change-directories]{change directories} to your desktop.
+\subsection{Create a First Build File}
+With the open command window, \hyperref[change-directories]{change directories} to the desktop.
 
 \hyperref[create-directory]{Create a directory} named ``GrokCodeBook'' using the ``mkdir'' command.
 
-Open a file for editing with your favorite \gls{text-editor} (a \hyperref[text-editors]{listing of text-editors} is provided in the \hyperref[tools]{Tools} appendix) and type the following:
+Open a file for editing with a favorite \gls{text-editor} (a \hyperref[text-editors]{listing of text-editors} is provided in the \hyperref[tools]{Tools} appendix) and type the following:
 
 %http://kb.mit.edu/confluence/display/ist/How+to+use+Tabs+in+LaTeX
 \begin{tabbing}
@@ -123,3 +119,50 @@ $\langle$/project$\rangle$
 \end{tabbing}
 
 Save the file as $\langle$Desktop$\rangle$$\backslash$GrokCodeBook$\backslash$default.build.
+
+From the $\langle$Desktop$\rangle$$\backslash$GrokCodeBook directory, issue the command \em nant \em. This should result in the display of some banner text and the message ``Hello!'' on the command window.
+
+\section{Getting It Under Control}
+\subsection{Get Git}
+Download msysgit from \url{http://code.google.com/p/msysgit/downloads/list}, and run the installer.
+
+Launch Git Bash from the desktop icon or the start menu. A terminal window with ``MINGW32'' in the title bar should display on screen.
+
+A welcome message should be displayed on the terminal window followed by the name of the machine followed by a tilde---a tilde (\~) is shorthand for the user's home directory in *NIX systems--- followed by the prompt (the \$ character).
+
+\subsection{Making Introductions With Git}
+At the prompt, type \em git config --global user.name "$\langle$Your Name Here$\rangle$" \em. The \em --global \em option instructs Git to store the supplied values in the \em \~/.gitconfig \em file versus the \em .gitconfig \em for a specific repository.
+
+Next, type \em git config --get user.name \em. Whatever value that was specified for \em user.name \em should be displayed in the terminal window.
+
+Now, supply Git with an email address by typing \em git config --global user.email $\langle$your-email@your-domain.com$\rangle$ \em. These detials will help other developer know who to contact should a problem arise (hopefully that eventuality will be avoided with judicious use of \gls{TDD}).
+
+\section{A First Repository}
+From the prompt, issue the command \em mkdir \~/Desktop/GrokCodeBook/code \em (when working with paths, you should use \hyperref[tab-completion]{tab completion} for speed). This will create the folder the examples will be contained in. Next, issue the command \em cd \~/Desktop/GrokCodeBook/code \em. Now the path to the newly created directory should appear before the prompt. The directory \em \~/Desktop/GrokCodeBook/code is now the current working directory.
+
+Create a folder for the repository to reside in by issuing the command \em mkdir MessageN \em. Change directories into \em MessageN \em.
+
+Issue the command \em git init \em to create the repository. There is now a Git repository at \em \~/Desktop/GrokCodeBook/code/MessageN \em.
+
+Move the previously created build file to the \em MessageN \em directory using the command \em mv ../../default.build default.build \em.
+
+Edit the build file so that it appears as follows:
+
+\begin{tabbing}
+$\langle$?xml version="1.0"?$\rangle$ \\
+$\langle$pro\=ject name="MessageN" default="build" basedir="."$\rangle$ \\
+\>$\langle$description$\rangle$A message server built in \CSharp.NET$\langle$/description$\rangle$ \\
+\>$\langle$tar\=get name="build"$\rangle$ \\
+\>\>$\langle$echo message="Building MessageN!"/$\rangle$ \\
+\>$\langle$/target$\rangle$ \\
+$\langle$/project$\rangle$
+\end{tabbing}
+
+Stage the build file for a commit to the repository from the Git Bash window with \em git add default.build \em. Commit the build file using \em git commit -m "Added build file" \em.
+
+\section{Begin With A Test}
+
+\subsection{Get NUnit}
+Download NUnit from \url{http://www.nunit.org/index.php?p=download}, and run the installer.
+
+Ensure that the directory containing \em nunit.exe \em appears in your \em PATH \em environment variable. Check this by issuing the command \em echo \%PATH\% \em from a Windows command line (won't work in msysgit/cygwin). Alternatively, execute the command \em nunit \em. This should launch the NUnit \gls{GUI} if the directory containing NUnit's binaries is in your \em PATH \em.
