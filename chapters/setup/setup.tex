@@ -166,3 +166,15 @@ Stage the build file for a commit to the repository from the Git Bash window wit
 Download NUnit from \url{http://www.nunit.org/index.php?p=download}, and run the installer.
 
 Ensure that the directory containing \em nunit.exe \em appears in your \em PATH \em environment variable. Check this by issuing the command \em echo \%PATH\% \em from a Windows command line (won't work in msysgit/cygwin). Alternatively, execute the command \em nunit \em. This should launch the NUnit \gls{GUI} if the directory containing NUnit's binaries is in your \em PATH \em.
+
+Providing one location for all your downloaded third-party libraries (DLLs), makes it easy for other developers to tell if a DLL has been left behind in a commit. Create a \em lib \em directory as a sub-directory of \em MessageN \em. Place the \em nunit.framework.dll \em located in the NUnit installation directory (use one for the most recent .NET framework targeted---i.e. 2.0.x in rather than 1.0.x) in the \em lib \em directory.
+
+Create \em projects \em sub-directory in \em MessageN \em. Within \em projects \em, create a directory named \em MessageN.Test \em.
+
+Now for the first test. In a text editor, add the following to \em MessageN.Test$\backslash$MessageTest.cs
+
+\input{chapters/setup/first-test} % Needs to be relative to root directory.
+
+To compile the test, add the following text to \em MessageN.Test$\backslash$default.build \em
+
+\input{chapters/setup/build-file}

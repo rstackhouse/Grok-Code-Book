@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project name="MessageN.Test" default="build" basedir=".">
+    <description>Tests for the MessageN namespace</description>
+    <target name="build">
+        <csc target="library" output="bin\${project::get-name()}.dll" debug="true">
+            <sources>
+                <include name="**/*.cs" />
+            </sources>
+            <references>
+                <include name="System.dll" />
+                <!--Need to specifiy the path to the NUnit DLL-->
+                <include name="..\..\lib\nunit.framework.dll" />
+            </references>
+        </csc>
+    </target>
+</project>
