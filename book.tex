@@ -1,7 +1,7 @@
 \documentclass{book}
 
 \usepackage[T1]{fontenc} % use the T1 font encoding
-\usepackage{lmodern}
+\usepackage{lmodern} % use computer modern font
 
 \usepackage{hyperref}
 
@@ -11,7 +11,7 @@
 % glossaries needs to come after hyperref if glossary entries are to be clickable
 \usepackage[toc,acronym]{glossaries}
 
-\include{glossaryentries}
+\include{glossary/glossaryentries}
 
 \makeglossaries
 
@@ -52,18 +52,17 @@ The examples included hereafter are executed in \CSharp and Microsoft.Net, but t
 \pagenumbering{arabic}
 
 % Setting Up A Programming Environment
-\include{setup}
-
+\include{chapters/setup/setup}
 
 % Keeping It Classy
-\include{classy}
+\include{chapters/classy/classy}
 
 \appendix
 % Appendix on Windows Administrative Tasks
-\include{windows-admin}
+\include{appendicies/windows-admin}
 
 % Appendix on Tools
-\include{tools}
+\include{appendicies/tools}
 
 \printglossaries
 

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<project name="MessageN" default="build" basedir=".">
+    <description>A message server built in C#.NET</description>
+    <target name="build">
+        <echo message="Building MessageN!" />
+    </target>
+</project>
