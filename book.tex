@@ -15,16 +15,17 @@
 
 \makeglossaries
 
-\title{Grok Code Book}
-\author{@GrokCodeBook \\ \url{http://twitter.com/\#!/GrokCodeBook}}
-
 \include{defs}
 
 \begin{document}
-\maketitle
-\addcontentsline{toc}{chapter}{Contents}
+
+\include{title}
+
+\newpage
+
 \pagenumbering{roman}
 \tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
 
 % The star suppresses numbering
 \chapter*{Introduction}\normalsize
@@ -44,11 +45,15 @@ works pertaining to computer programming.
 
 The examples included hereafter are executed in \CSharp and Microsoft.Net, but the concepts set forth therein are relevant to all OO languages and frameworks.
 
+% Need this here to force roman numbering for Intro and arabic for following chapter.
+\newpage
+
 \pagestyle{headings}
 \pagenumbering{arabic}
 
 % Setting Up A Programming Environment
 \include{setup}
+
 
 % Keeping It Classy
 \include{classy}
