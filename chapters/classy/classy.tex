@@ -2,9 +2,18 @@
 
 \chapter{Keeping It Classy}
 
-Countless examples of structured programing in an object oriented language presented as proper technique exist both online and in programming texts. This is the equivalent of buying a set of golf clubs, but only ever using the seven iron.
+\section{Why OO?}
+Countless examples of structured programing in an object oriented language presented as proper technique exist both online and in programming texts. This is the equivalent of telling someone to buy a set of golf clubs, but only ever giving them instruction on how to use the seven iron.
 
 Object orientation allows for the separation of concerns and facilitates refactoring. Two methodologies that allow changes to be introduced to software systems relatively easily.
 
-Going forward, \href{http://www.javaworld.com/javaworld/jw-08-1999/jw-08-interfaces.html}{coding to interfaces} will be presented as the appropriate way to implement object oriented systems. This approach allows for the development of loosely coupled and highly cohesive systems. Coding for interfaces also allows the developer to prioritize development by factors like risk mitigation rather than requiring a class to wait on all it's components to be concretely implemented before starting work on that class. Coding to interfaces also allows for division of labor and collaboration. Perhaps most importantly, coding to interfaces allows objects to be tested in isolation.
+Going forward, \href{http://www.javaworld.com/javaworld/jw-08-1999/jw-08-interfaces.html}{coding to interfaces} will be presented as the appropriate way to implement object oriented systems. This approach allows for the development of loosely coupled and highly cohesive systems. Coding to interfaces also allows the developer to prioritize development by factors like risk (high risk features should be tackled first---it's better to know something can't be done sooner rather than later) rather than requiring a class to wait on all it's components to be concretely implemented before starting work on that class. Coding to interfaces also allows for division of labor and collaboration. Perhaps most importantly, coding to interfaces allows objects to be tested in isolation.
 
+\section{The Assignment}
+The system to be built is a generic message queing and delivery service along with a few clients for scheduling and sending messages. The client wants this because he would like to write messages when he thinks of them and would like for those messages to be sent at the oportune moment. The client has expressed the most interest in being able to schedule email and Facebook updates.
+
+Back at the office, after a whiteboard session, the following interfaces are agreed to for the project to be built upon.
+
+\verbatiminput{chapters/classy/code/GrokCodeBook/code/MessageN/projects/MessageN/Interfaces.cs}
+
+Now that a starting point has been established, time to make the first test pass.
