@@ -171,10 +171,23 @@ Providing one location for all your downloaded third-party libraries (DLLs), mak
 
 Create \em projects \em sub-directory in \em MessageN \em. Within \em projects \em, create a directory named \em MessageN.Test \em.
 
-Now for the first test. In a text editor, add the following to \em MessageN.Test$\backslash$MessageTest.cs
+Now for the first test. In a text editor, add the following to \em MessageN.Test$\backslash$MessageTest.cs \em
 
-\input{chapters/setup/first-test} % Needs to be relative to root directory.
+% Needs to be relative to root directory.
+\verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageTest.cs} 
 
-To compile the test, add the following text to \em MessageN.Test$\backslash$default.build \em
+To compile the test and run it, add the following text to \em MessageN.Test$\backslash$default.build \em
 
-\input{chapters/setup/build-file}
+\verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/projects/MessageN.Test/default.build}
+
+Since NAnt was built against an earlier version of NUnit, the runtime needs told which version of NUnit to use. This is done by \href{http://msdn.microsoft.com/en-us/library/7wd6ex19(v=vs.71).aspx}{redirecting the assembly version}.
+
+In a text editor, save the following to \em MessageN.Test$\backslash$MessageN.Test.dll.config \em
+
+\verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageN.Test.dll.config}
+
+Now run the test by issuing the command \em nant \em from the \em MessageN.Test \em directory.
+
+The \em \href{http://nant.sourceforge.net/release/latest/help/tasks/nunit2.html}{nunit2} \em NAnt task should print a test report to the console reporting one failed test.
+
+Remembering that a development environment should be tailored to suit the individual developer, the programs installed above will serve as a solid foundation for a development environment. Further programs and assemblies will be downloaded in other chapters as needed.

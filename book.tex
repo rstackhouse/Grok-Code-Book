@@ -4,11 +4,12 @@
 \usepackage{lmodern} % use computer modern font
 
 \usepackage{hyperref}
-
 \hypersetup{colorlinks=true,
-	linkcolor=red}
+	linkcolor=red} % use red colored links instead of weird boxes
+	
+\usepackage{verbatim} % allow verbatim input for things like code files http://www.tex.ac.uk/cgi-bin/texfaq2html?label=verbfile
 
-% glossaries needs to come after hyperref if glossary entries are to be clickable
+% glossaries package needs to come after hyperref if glossary entries are to be clickable
 \usepackage[toc,acronym]{glossaries}
 
 \include{glossary/glossaryentries}
