@@ -1,0 +1,15 @@
+% chapters/config/config.tex
+
+\chapter{Extensibility Through Configuration}
+
+Extensibility is a \href{http://webarya.wordpress.com/2010/05/28/my-ten-development-principles/}{delicate subject}. \href{http://c2.com/xp/BigDesignUpFront.html}{Big Design Up Front} is a perjorative term coined to describe the fool-hardy attempt to completely specify a software system in full detail before writing a line of code. This approach strives to prevent waste by not working on the problem until it has been completely defined. The problem is that the only absolute in software is uncertainty. Implied requirements usually can't be discovered until a customer has seen the software in action and has the opportunity to say, ``That isn't what I meant.'' 
+
+Designing for extensibility where it isn't required or isn't high-priority can easily lead to \href{http://blog.digitalstruct.com/2008/02/17/over-engineering-software/}{over-engineering the software}. The ways to prevent over-engineering are to deliver working tested software ASAP rather than a huge feature set (contracts can be extended later if need be and only successful projects deserve extension), to think and reason, and to continually check priorities with the customer (communicate as much as possible with as much efficiency as possible).
+
+Preferring composition (using components that perform specific functions such as sending a message) over inheritence is one development strategy that aims to reduce over-engineering and promote possible future re-use by avoid unnecessary abstraction. Creating base classes is an activity few people do well. Following the \href{http://www.objectmentor.com/resources/articles/srp.pdf}{Single Responsibility Principle} can also help keep developers focused on just the task at hand.
+
+From discussions with the customer for the messaging service, it can be determined that extensibility is a priority in at least one case: the customer would like to be able to schedule both email messages and Facebook updates. Scheduling Facebook messages has also been prioritized over scheduling email.
+
+As a starting point, here's a failing test for a list of transports retrieved from configuration:
+
+\verbatiminput{chapters/config/document_assets/code/MessageN/projects/MessageN.Test/MessageTransportConfigurationSectionTest-01.cs}
