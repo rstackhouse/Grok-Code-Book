@@ -1,14 +1,16 @@
 <?xml version="1.0"?>
 <!-- Use current working directory as basedir. -->
-<!-- Make "test" the target that gets executed when "nant" is run with no arguments. -->
+<!-- Make "test" the target that gets executed when "nant" is run 
+     with no arguments. -->
 <project name="MessageN.Test" default="test" basedir=".">
     <property name="lib.dir" value="..\..\lib"/>
     <property name="build.dir" value="bin"/>
     
     <description>Tests for the MessageN namespace</description>
     
-    <!--Need to copy the NUnit DLL to then build directory so the CLR automagic can load it
-        when the test is running.-->
+    <!-- Need to copy the NUnit DLL to then build directory so 
+         the CLR automagic can load it when the test is running. 
+    -->
     <target name="copyReferences">
         <copy todir="${build.dir}">
             <fileset basedir="${lib.dir}">
@@ -18,15 +20,20 @@
     </target>
     
     <target name="build" depends="copyReferences">
-        <csc target="library" output="${build.dir}\${project::get-name()}.dll" debug="true">
+        <csc 
+            target="library" 
+            output="${build.dir}\${project::get-name()}.dll" 
+            debug="true">
             <sources>
-                <!--Includes all C# files in basedir and its sub-directories.-->
+                <!-- Includes all C# files in basedir and its 
+                     sub-directories. -->
                 <include name="**/*.cs" />
             </sources>
             <references>
                 <include name="System.dll" />
                 <!--Need to specifiy the path to the NUnit DLL-->
-                <include name="${build.dir}\nunit.framework.dll" />
+                <include 
+                    name="${build.dir}\nunit.framework.dll" />
             </references>
         </csc>
     </target>
@@ -34,7 +41,10 @@
     <target name="test" depends="build">
         <nunit2>
             <formatter type="Plain" />
-            <test assemblyname="bin\${project::get-name()}.dll" appconfig="${project::get-name()}.config" />
+            <test 
+                assemblyname="bin\${project::get-name()}.dll" 
+                appconfig="${project::get-name()}.config" 
+            />
         </nunit2>
     </target>
     
