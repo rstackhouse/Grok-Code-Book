@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<project name="Hello Grok Code Book" default="msg" basedir=".">
+    <description>An example build file</description>
+    <target name="msg">
+        <echo message="Hello!"/>
+    </target>
+</project>

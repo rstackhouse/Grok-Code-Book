@@ -29,7 +29,7 @@ namespace MessageN
     public interface IMessageRouter
     {
         IMessage Message {get;}
-        List<IAttempt> Attempts {get;}
+        List<IDeliveryAttempt> Attempts {get;}
         bool Active {get;}
         void Send(IMessage message);
     }

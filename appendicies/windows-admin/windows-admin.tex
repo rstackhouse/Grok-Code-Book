@@ -1,0 +1,39 @@
+%appendicies/windows-admin/windows-admin.tex
+
+%TODO: find someone with amazing windows-foo to contribute to this section.
+
+\chapter{Windows Administrative Tasks} 
+\section{Setting the PATH Environment Variable}\label{path}
+The \em PATH \em environment variable represents a semi-colon delimited (separated) list of all the paths in a computer where executable files are kept. This allows the execution of an executable from the command line by typing only it's name and not its full path (i.e. \em C:$\backslash$$\rangle$firefox \em as opposed to \em C:$\backslash$$\rangle$"Program Files$\backslash$Mozilla Firefox$\backslash$firefox.exe" \em).
+
+The \em PATH \em environment variable may be set by launching the System Properties window. This can be done by pressing the \em Windows \em and \em Pause \em keys simultaneously. This key comibination is denoted by \em Windows  Pause \em (you will see this \em button + button \em shorthand for key combinations again). A dialog named \em System Properties \em will show up on-screen. Click the \em Advanced \em tab. Then click the \em Environment Variables \em button. If administrative priveliges are available, select the variable named \em PATH \em (spelling may also be \em Path \em) in the list called \em System variables \em, and push the \em Edit \em button.
+
+The \em Edit System Variable \em dialog will display on screen. In the \em Variable value \em box, paste the path to the program (full path to the directory it is in) at the end of the list of paths. Ensure there is a semi-colon separating new path from the one before it. Click the \em OK \em button to close the \em Edit System Variable \em dialog. Click \em OK \em to close the \em Environment Variables \em dialog, and close the \em System Properties \em window.
+
+\em N.B.: any open command windows while modifing your PATH variable will not reflect the changes to it. Be sure to close and reopen all command windows when editing the PATH. \em
+
+\section{Launching a Command Window}\label{launch-command-window}
+Launching a command window can be done by typing ``cmd'' into the \em Run \em box and pressing \em Enter \em. The \em Run \em box can be found from the \em start \em menu on Windows (look for the text ``Run...'' on the start menu). Alternatively, the \em Run \em box may be launched by the pressing \em Windows + R \em key combination on the keyboard.
+
+\section{Changing Directories}\label{change-directories}
+To change the current working directory (cwd) in a command window, issue the command ``cd'' followed by the name of directory to be made the new current working directory.
+
+For example: \em C:$\backslash$Users$\backslash$GrokCodeBook$\rangle$ cd Desktop \em.
+
+The above command would take you from the user's home directory (the user's profile directory---C:$\backslash$Users$\backslash$GrokCodeBook if you are the user ``GrokCodeBook'') to the Desktop in Vista or Windows 7.
+
+\section{Create a Directory}\label{create-directory}
+The ``mkdir'' command can be used to create a sub-directory from a directory if have sufficient permissions have been granted.
+
+For example: \em C:$\backslash$Users$\backslash$GrokCodeBook$\backslash$Desktop$\rangle$ mkdir GrokCodeBook \em.
+
+The above command would create the directory C:$\backslash$Users$\backslash$GrokCodeBook$\backslash$Desktop$\backslash$GrokCodeBook.
+
+\section{Tab Completion}\label{tab-completion}
+Tab completion functionality saves the user of the command window from having to type the full name of a directory when working with paths.
+
+For example, when \hyperref[launch-command-window]{launching a command window}, the command window will default to the user's profile directory. To \hyperref[change-directories]{change directories} to the Desktop, one can type \em cd D \em then press the \em Tab \em key. This will complete the path. ``cd Desktop'' should be visible after the prompt if there are no other directories that begin with a ``D'' in the user's profile directory. 
+
+If there are sub-directories with similar names (for instance ``Desktop'' and ``Downloads'') in the current working directory, the user need only type enough of the path (``De'' or ``Do'' in the case of ``Desktop'' and ``Downloads'') for the system to be able to discriminate between the two. 
+
+If the system can't tell the difference (for example: only ``D'' was typed from the previous example), in Windows, typing the \em Tab \em key successive times will toggle between subdirectories with the same beginning (on *NIX systems, a list of sub-directories with the same beginning will be printed to the command window).

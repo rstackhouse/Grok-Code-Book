@@ -107,20 +107,14 @@ With the open command window, \hyperref[change-directories]{change directories} 
 
 Open a file for editing with a favorite \gls{text-editor} (a \hyperref[text-editors]{listing of text-editors} is provided in the \hyperref[tools]{Tools} appendix) and type the following:
 
-%http://kb.mit.edu/confluence/display/ist/How+to+use+Tabs+in+LaTeX
-\begin{tabbing}
-$\langle$?xml version="1.0"?$\rangle$ \\
-$\langle$pro\=ject name="Hello Grok Code Book" default="msg" basedir="."$\rangle$ \\
-\>$\langle$description$\rangle$An example build file$\langle$/description$\rangle$ \\
-\>$\langle$tar\=get name="msg"$\rangle$ \\
-\>\>$\langle$echo message="Hello!"/$\rangle$ \\
-\>$\langle$/target$\rangle$ \\
-$\langle$/project$\rangle$
-\end{tabbing}
+\verbatiminput{chapters/setup/document_assets/GrokCodeBook/default.build}
 
 Save the file as $\langle$Desktop$\rangle$$\backslash$GrokCodeBook$\backslash$default.build.
 
 From the $\langle$Desktop$\rangle$$\backslash$GrokCodeBook directory, issue the command \em nant \em. This should result in the display of some banner text and the message ``Hello!'' on the command window.
+
+%TODO: Write appendix entry on how to do this.
+If you downloaded version 0.90 of NAnt or earlier, you are going to need to \href{http://paigecsharp.blogspot.com/2009/08/nant-net-framework-40-configuration.html}{target .NET Framework 4.0}.
 
 \section{Getting It Under Control}
 \subsection{Get Git}
@@ -128,10 +122,10 @@ Download msysgit from \url{http://code.google.com/p/msysgit/downloads/list}, and
 
 Launch Git Bash from the desktop icon or the start menu. A terminal window with ``MINGW32'' in the title bar should display on screen.
 
-A welcome message should be displayed on the terminal window followed by the name of the machine followed by a tilde---a tilde (\~) is shorthand for the user's home directory in *NIX systems--- followed by the prompt (the \$ character).
+A welcome message should be displayed on the terminal window followed by the name of the machine followed by a tilde---a tilde (\textasciitilde) is shorthand for the user's home directory in *NIX systems--- followed by the prompt (the \$ character).
 
 \subsection{Making Introductions With Git}
-At the prompt, type \em git config --global user.name "$\langle$Your Name Here$\rangle$" \em. The \em --global \em option instructs Git to store the supplied values in the \em \~/.gitconfig \em file versus the \em .gitconfig \em for a specific repository.
+At the prompt, type \em git config --global user.name "$\langle$Your Name Here$\rangle$" \em. The \em --global \em option instructs Git to store the supplied values in the \em \textasciitilde/.gitconfig \em file versus the \em .gitconfig \em for a specific repository.
 
 Next, type \em git config --get user.name \em. Whatever value that was specified for \em user.name \em should be displayed in the terminal window.
 
@@ -149,15 +143,7 @@ Move the previously created build file to the \em MessageN \em directory using t
 
 Edit the build file so that it appears as follows:
 
-\begin{tabbing}
-$\langle$?xml version="1.0"?$\rangle$ \\
-$\langle$pro\=ject name="MessageN" default="build" basedir="."$\rangle$ \\
-\>$\langle$description$\rangle$A message server built in \CSharp.NET$\langle$/description$\rangle$ \\
-\>$\langle$tar\=get name="build"$\rangle$ \\
-\>\>$\langle$echo message="Building MessageN!"/$\rangle$ \\
-\>$\langle$/target$\rangle$ \\
-$\langle$/project$\rangle$
-\end{tabbing}
+\verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/default.build} 
 
 Stage the build file for a commit to the repository from the Git Bash window with \em git add default.build \em. Commit the build file using \em git commit -m "Added build file" \em.
 
@@ -172,6 +158,8 @@ Providing one location for all your downloaded third-party libraries (DLLs), mak
 
 Create \em projects \em sub-directory in \em MessageN \em. Within \em projects \em, create a directory named \em MessageN.Test \em.
 
+\subsection{Writing the First Test}
+
 Now for the first test. In a text editor, add the following to \\
 \em MessageN.Test$\backslash$MessageTest.cs \em
 
@@ -183,14 +171,8 @@ To compile the test and run it, add the following text to \\
 
 \verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/projects/MessageN.Test/default.build}
 
-Since NAnt was built against an earlier version of NUnit, the runtime needs told which version of NUnit to use. This is done by \href{http://msdn.microsoft.com/en-us/library/7wd6ex19(v=vs.71).aspx}{redirecting the assembly version}.
-
-In a text editor, save the following to \em MessageN.Test$\backslash$MessageN.Test.dll.config \em
-
-\verbatiminput{chapters/setup/code/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageN.Test.dll.config}
-
 Now run the test by issuing the command \em nant \em from the \em MessageN.Test \em directory.
 
-The \em \href{http://nant.sourceforge.net/release/latest/help/tasks/nunit2.html}{nunit2} \em NAnt task should print a test report to the console reporting one failed test.
+The \em nunit-console \em should print a test report to the console reporting one failed test.
 
 Remembering that a development environment should be tailored to suit the individual developer, the programs installed above will serve as a solid foundation for a development environment. Further programs and assemblies will be downloaded in other chapters as needed.

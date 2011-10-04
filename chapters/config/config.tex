@@ -6,16 +6,34 @@ Extensibility is a \href{http://webarya.wordpress.com/2010/05/28/my-ten-developm
 
 Designing for extensibility where it isn't required or isn't high-priority can easily lead to \href{http://blog.digitalstruct.com/2008/02/17/over-engineering-software/}{over-engineering the software}. The ways to prevent over-engineering are to deliver working tested software ASAP rather than a huge feature set (contracts can be extended later if need be and only successful projects deserve extension), to think and reason, and to continually check priorities with the customer (communicate as much as possible with as much efficiency as possible).
 
-Preferring composition (using components that perform specific functions such as sending a message) over inheritence is one development strategy that aims to reduce over-engineering and promote possible future re-use by avoid unnecessary abstraction. Creating base classes is an activity few people do well. Following the \href{http://www.objectmentor.com/resources/articles/srp.pdf}{Single Responsibility Principle} can also help keep developers focused on just the task at hand.
+Preferring composition (using components that perform specific functions such as sending a message) over inheritence is one development strategy that aims to reduce over-engineering and promote possible future re-use by avoiding unnecessary abstraction. Creating base classes is an activity few people do well. Following the \href{http://www.objectmentor.com/resources/articles/srp.pdf}{Single Responsibility Principle} can also help keep developers focused on just the task at hand.
 
 From discussions with the customer for the messaging service, it can be determined that extensibility is a priority in at least one case: the customer would like to be able to schedule both email messages and Facebook updates. Scheduling Facebook messages has also been prioritized over scheduling email.
 
 As a starting point, here's a failing test for a list of transports retrieved from configuration:
 
-\verbatiminput{chapters/config/document_assets/code/MessageN/projects/MessageN.Test/MessageTransportConfigurationSectionTest-01.cs}
+\verbatiminput{chapters/config/document_assets/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageTransportConfigurationSectionTest-01.cs}
 
-Running the build file from the \em MessageN.Test \em directory, you should see a message that the \em Should\_Return\_List\_Of\_Transports\_From\_Transports \em test failed.
+Running the build file from the \em MessageN.Test \em directory, should report a message indicating that the \em Should\_Return\_List\_Of\_Transports\_From\_Transports \em test failed.
 
-A MessageTransportConfigurationSection class needs to be defined in a new \em Configuration \em subdirectory under \em Desktop$\backslash$GrokCodeBook$\backslash$code$\backslash$MessageN$\backslash$projects$\backslash$MessageN \em before anything meaningful can be done with this test. Name the class file \em MessageTransportConfigurationSection.cs \em, and add the following text to it:
+This test runs, but it does not communicate anything about the behavior of the \em MessageTransportConfigurationSection \em.
 
-\verbatiminput{chapters/config/document_assets/code/MessageN/projects/MessageN/Configuration/MessageTransportConfigurationSection-01.cs}
+To this end, modify \em MessageTransportConfigurationSectionTest \em as follows:
+
+\verbatiminput{chapters/config/document_assets/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageTransportConfigurationSectionTest-02.cs}
+
+A MessageTransportConfigurationSection class needs to be defined in a new \em Configuration \em subdirectory under \em Desktop$\backslash$GrokCodeBook$\backslash$code$\backslash$MessageN$\backslash$projects$\backslash$MessageN \em so that this class can compile. Name the class file \em MessageTransportConfigurationSection.cs \em, and add the following text to it:
+
+\verbatiminput{chapters/config/document_assets/GrokCodeBook/code/MessageN/projects/MessageN/Configuration/MessageTransportConfigurationSection-01.cs}
+
+This modification will allow the test to compile, but it will still fail.
+
+Alter the test to add a transport to the section:
+
+\verbatiminput{chapters/config/document_assets/GrokCodeBook/code/MessageN/projects/MessageN.Test/MessageTransportConfigurationSectionTest-03.cs}
+
+And make a matching edit in the section so the test will compile and run:
+
+\verbatiminput{chapters/config/document_assets/GrokCodeBook/code/MessageN/projects/MessageN/Configuration/MessageTransportConfigurationSection-02.cs}
+
+Now the section has a \em TransportCount \em rather than a \em Transports \em property exposed. Exposing the list of transports was breaking encapsulation and had a bit of a \href{http://c2.com/cgi/wiki?FeatureEnvySmell}{Property Envy Smell} to it.
