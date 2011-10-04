@@ -9,7 +9,7 @@ namespace MessagN.Test
     public class MessageTransportConfigurationSectionTest
     {
         [Test]
-        public void Should_Return_List_Of_Transports_From_Transports()
+        public void Should_Add_Transport()
         {
             var transportSection = new MessageTransportConfigurationSection();
             var transport = Substitute.For<IMessageTransport>();

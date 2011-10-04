@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- Use current working directory as basedir. -->
-<!-- Make "test" the target that gets executed when "nant" is run with no arguments. -->
+<!-- Make "test" the target that gets executed when "nant" is 
+     run with no arguments. -->
 <project name="MessageN.Test" default="test" basedir=".">
     
 	<property name="lib.dir" value="..\..\lib"/>
@@ -9,7 +10,9 @@
     <description>Tests for the MessageN namespace</description>
     
     <target name="buildLibUnderTest">
-        <nant buildfile="..\MessageN\default.build" target="build" />
+        <nant 
+            buildfile="..\MessageN\default.build" target="build"
+        />
     </target>
     
     <target name="copyDll" depends="buildLibUnderTest">
@@ -20,8 +23,9 @@
         </copy>
     </target>
     
-    <!--Need to copy the NUnit DLL to then build directory so the CLR automagic can load it
-        when the test is running.-->
+    <!--Need to copy the NUnit DLL to then build directory so 
+        the CLR automagic can load it when the test is running.
+    -->
     <target name="copyReferences">
         <copy todir="${build.dir}">
             <fileset basedir="${lib.dir}">
@@ -30,24 +34,41 @@
         </copy>
     </target>
     
-    <target name="build" depends="copyReferences, copyDll">
-        <csc target="library" output="${build.dir}\${project::get-name()}.dll" debug="true">
+    <target name="build" depends="copyReferences">
+        <csc 
+            target="library" 
+            output="${build.dir}\${project::get-name()}.dll" 
+            debug="true">
             <sources>
-                <!--Includes all C# files in basedir and its sub-directories.-->
+                <!--Includes all C# files in basedir and its 
+                     sub-directories. -->
                 <include name="**/*.cs" />
             </sources>
             <references>
                 <include name="System.dll" />
-                <include name="${build.dir}\*.dll" />
+                <!--Need to tell the compiler where the NUnit
+                    and other DLLs will be placed.-->
+                <include 
+                    name="${build.dir}\*.dll" />
             </references>
         </csc>
     </target>
     
     <target name="test" depends="build">
-        <nunit2>
-            <formatter type="Plain" />
-            <test assemblyname="bin\${project::get-name()}.dll" appconfig="${project::get-name()}.config" />
-        </nunit2>
+        <!--Use the <exec> task rather than the <nunit2> task
+            to run NUnit to avoid version headaches
+            see:
+http://www.hanselman.com/blog/CallingNUnitFromNAntPragmatically.aspx
+        -->
+        <!--N.B.: Using only the name of the executable rather 
+                  than its full file system path will only work
+                  if its path has been set in your PATH 
+                  environment varibale.
+        -->
+        <exec program="nunit-console">
+            <arg 
+                value="${build.dir}\${project::get-name()}.dll"/>
+        </exec>
     </target>
     
 </project>
